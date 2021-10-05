@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import * as XLSX from 'xlsx';
 import DataTable from 'react-data-table-component';
 import Logout from './Logout';
+import axios from 'axios';
+import Button from '@mui/material/Button';
+
 function UploadCSV(props) {
     
     const [columns, setColumns] = useState([]);
@@ -68,18 +71,64 @@ function UploadCSV(props) {
       reader.readAsBinaryString(file);
     }
 
+    const deleteAllCourses = () => axios.get("http://localhost:3001/courses/del-courses/",  { crossdomain: true }) ;
+    const addMultipleCourses = () => axios.get("http://localhost:3001/courses/add-courses/",  { crossdomain: true }) ;
+    const addCourse = () =>  axios.get("http://localhost:3001/courses/add-course/",  { crossdomain: true }) ;
+    const addSlots = () =>  axios.get("http://localhost:3001/slots/add-slots/",  { crossdomain: true }) ;
+    const assignCourses= () =>  axios.get("http://localhost:3001/slots/assign-courses/",  { crossdomain: true }) ;
+    const delSlots = () =>  axios.get("http://localhost:3001/slots/del-slots/",  { crossdomain: true }) ;
+
   return (
     <div>
+       <Button style={{padding: '6px 12px', border: '1px solid' , margin: '5px 5px',}} variant="contained" onClick={() => deleteAllCourses()}>
+        Delete all courses
+      </Button>
+      
+      <Button style={{padding: '6px 12px', border: '1px solid', margin: '5px 5px',}} variant="contained" onClick={() => addMultipleCourses()}>
+        Add Multiple courses
+      </Button>
+     
+      <Button style={{padding: '6px 12px', border: '1px solid', margin: '5px 5px',}} variant="contained" onClick={() => addCourse()}>
+        Add course
+      </Button>
+      <br/>
+      <Button style={{padding: '6px 12px', border: '1px solid', margin: '5px 5px',}} variant="contained" onClick={() => addSlots()}>
+        Add slots
+      </Button>
+      
+      <Button style={{padding: '6px 12px', border: '1px solid', margin: '5px 5px',}} variant="contained" onClick={() => assignCourses()}>
+        Assign courses
+      </Button>
+     
+      <Button style={{padding: '6px 12px', border: '1px solid', margin: '5px 5px',}} variant="contained" onClick={() => delSlots()}>
+        Delete slots
+      </Button>
+      <br/>
+    
       <h3>Upload Ground Rules from ACAD Section</h3>
-      <input
-        type="file"
-        accept=".csv,.xlsx,.xls"
+      
+    
+      
+      <Button
+  variant="contained"
+  component="label"
+>
+  Upload File
+  <input
+    type="file"
+    accept=".csv,.xlsx,.xls"
         onChange={handleFileUpload}
-      />
+    hidden
+  />
+</Button>
+      
+     
+     
 
 <div style={{paddingLeft:'90%', display:'inline-block', marginTop:'-5%'}}>
       <Logout />
       </div>
+      
       <DataTable
         pagination
         highlightOnHover
