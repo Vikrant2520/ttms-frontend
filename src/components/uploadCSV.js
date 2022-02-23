@@ -77,6 +77,10 @@ function UploadCSV(props) {
     const addSlots = () =>  axios.get("http://localhost:3001/slots/add-slots/",  { crossdomain: true }) ;
     const assignCourses= () =>  axios.get("http://localhost:3001/slots/assign-courses/",  { crossdomain: true }) ;
     const delSlots = () =>  axios.get("http://localhost:3001/slots/del-slots/",  { crossdomain: true }) ;
+    const delTutSlots = () =>  axios.get("http://localhost:3001/del-tut-slots/",  { crossdomain: true }) ;
+    const addTutSlots = () =>  axios.get("http://localhost:3001/add-tut-slots/",  { crossdomain: true }) ;
+    const assignTutSlots = () =>  axios.get("http://localhost:3001/assign-tut/",  { crossdomain: true }) ;
+
 
   return (
     <div>
@@ -102,6 +106,18 @@ function UploadCSV(props) {
      
       <Button style={{padding: '6px 12px', border: '1px solid', margin: '5px 5px',}} variant="contained" onClick={() => delSlots()}>
         Delete slots
+      </Button>
+
+      <Button style={{padding: '6px 12px', border: '1px solid', margin: '5px 5px',}} variant="contained" onClick={() => addTutSlots()}>
+        Add Tut slots
+      </Button>
+      
+      <Button style={{padding: '6px 12px', border: '1px solid', margin: '5px 5px',}} variant="contained" onClick={() => assignTutSlots()}>
+        Assign Tut 
+      </Button>
+     
+      <Button style={{padding: '6px 12px', border: '1px solid', margin: '5px 5px',}} variant="contained" onClick={() => delTutSlots()}>
+        Delete Tut slots
       </Button>
       <br/>
     
