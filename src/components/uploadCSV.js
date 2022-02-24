@@ -80,6 +80,8 @@ function UploadCSV(props) {
     const delTutSlots = () =>  axios.get("http://localhost:3001/del-tut-slots/",  { crossdomain: true }) ;
     const addTutSlots = () =>  axios.get("http://localhost:3001/add-tut-slots/",  { crossdomain: true }) ;
     const assignTutSlots = () =>  axios.get("http://localhost:3001/assign-tut/",  { crossdomain: true }) ;
+    const assignPracticalSlots = () =>  axios.get("http://localhost:3001/assign-prac/",  { crossdomain: true }) ;
+
 
 
   return (
@@ -108,6 +110,7 @@ function UploadCSV(props) {
         Delete slots
       </Button>
 
+      <br/>
       <Button style={{padding: '6px 12px', border: '1px solid', margin: '5px 5px',}} variant="contained" onClick={() => addTutSlots()}>
         Add Tut slots
       </Button>
@@ -118,6 +121,10 @@ function UploadCSV(props) {
      
       <Button style={{padding: '6px 12px', border: '1px solid', margin: '5px 5px',}} variant="contained" onClick={() => delTutSlots()}>
         Delete Tut slots
+      </Button>
+      <br/>
+      <Button style={{padding: '6px 12px', border: '1px solid', margin: '5px 5px',}} variant="contained" onClick={() => assignPracticalSlots()}>
+        Assign Practical Slots 
       </Button>
       <br/>
     
