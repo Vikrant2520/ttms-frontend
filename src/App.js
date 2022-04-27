@@ -12,9 +12,10 @@ function App() {
      
     <Router>
     <Switch>
-      <Route path="/login" component={Login} />
-      <Route path="/uploadCSV" component={uploadCSV} />
+    <Route path="/uploadCSV" component={uploadCSV} />
       <Route path="/timetable" component={timetable} />
+      <Route path="/" component={Login} />
+     
     </Switch>
     
     </Router>

@@ -129,19 +129,20 @@ function createData(time, monday, tuesday, wednsday, thursday, friday) {
 
   
   
-  const rows = [
-    createData('8:00 - 8:55 AM', 'X1', 'H1', 'X2', 'H2', 'X3' ),
-    createData('9:00 - 9:55 AM', 'G2', 'P3/T3', 'G*', 'P9/T9', 'P13/T13'),
-    createData('10:00 - 10:55 AM', 'C/E/F', 'P4/T4', 'X5', 'P10/T10', 'P14/T14'),
-    createData('11:00 - 11:55 AM', 'P1/T1', 'P5/T5', 'P7/T7', 'P11/T11', 'P15/T15'),
-    createData('12:00 - 12:55 PM', 'P2/T2', 'P6/T6', 'P8/T8', 'P12/T12', 'P16/T16'),
-    createData('1:00 - 1:55 PM', 'L', 'U', 'N', 'C', 'H'),
-    createData('2:00 - 2:55 PM', 'A2', 'A2', 'F2', 'A2', 'F2'),
-    createData('3:00 - 3:55 PM', 'C2', 'F2', 'C2', 'B2', 'C2'),
-    createData('4:00 - 4:55 PM', 'D2', 'B2', '', 'D2', 'B2'),
-    createData('5:00 - 5:55 PM', 'E2', 'E2', '', 'E2', 'D2'),
-    createData('6:00 - 6:55 PM', 'Y1', 'Y2', '', 'Y3', ''),
-  ];
+const rows = [
+  createData('8:00 - 8:55 AM', 'X1', 'H1', 'X2', 'H2', 'X3' ),
+  createData('9:00 - 9:55 AM', 'G2', '3', 'G*', '9', '13'),
+  createData('10:00 - 10:55 AM', 'C/E/F', '4', 'X5', '10', '14'),
+  createData('11:00 - 11:55 AM', '1', '5', '7', '11', '15'),
+  createData('12:00 - 12:55 PM', '2', '6', '8', '12', '16'),
+  createData('1:00 - 1:55 PM', 'L', 'U', 'N', 'C', 'H'),
+  createData('2:00 - 2:55 PM', 'A2', 'A2', 'F2', 'A2', 'F2'),
+  createData('3:00 - 3:55 PM', 'C2', 'F2', 'C2', 'B2', 'C2'),
+  createData('4:00 - 4:55 PM', 'D2', 'B2', '', 'D2', 'B2'),
+  createData('5:00 - 5:55 PM', 'E2', 'E2', '', 'E2', 'D2'),
+  createData('6:00 - 6:55 PM', 'Y1', 'Y2', '', 'Y3', ''),
+];
+
 
    
 
@@ -221,43 +222,43 @@ function Timetable() {
             if(tutSlots[i].year === 3)
             {
                 rows.map((row) => {
-                    if(tutSlots[i].num == row.monday[1] && row.monday[0]== 'P')
+                    if(tutSlots[i].num == row.monday)
                     {
                         row.monday =tutSlots[i].coursesAssigned.map((course) => {
                             return(
-                            <><div>{course.code} P{course.subBatch} {course.tutPrac}</div></>
+                            <><div>{course.code} P{course.subBatch} {course.tutPrac} {course.teacher}</div></>
                             )
                         }) 
                     }
-                    if(tutSlots[i].num == row.tuesday[1] && row.tuesday[0]== 'P')
+                    if(tutSlots[i].num == row.tuesday)
                     {
                         row.tuesday =tutSlots[i].coursesAssigned.map((course) => {
                             return(
-                            <><div>{course.code} P{course.subBatch} {course.tutPrac}</div></>
+                            <><div>{course.code} P{course.subBatch} {course.tutPrac}  {course.teacher}</div></>
                             )
                         }) 
                     }
-                    if(tutSlots[i].num == row.wednsday[1] && row.wednsday[0]== 'P')
+                    if(tutSlots[i].num == row.wednsday)
                     {
                         row.wednsday =tutSlots[i].coursesAssigned.map((course) => {
                             return(
-                            <><div>{course.code} P{course.subBatch} {course.tutPrac}</div></>
+                            <><div>{course.code} P{course.subBatch} {course.tutPrac} {course.teacher}</div></>
                             )
                         }) 
                     }
-                    if(tutSlots[i].num == row.thursday[1] && row.thursday[0]== 'P')
+                    if(tutSlots[i].num == row.thursday )
                     {
                         row.thursday =tutSlots[i].coursesAssigned.map((course) => {
                             return(
-                            <><div>{course.code} P{course.subBatch} {course.tutPrac}</div></>
+                            <><div>{course.code} P{course.subBatch} {course.tutPrac} {course.teacher}</div></>
                             )
                         }) 
                     }
-                    if(tutSlots[i].num == row.friday[1] && row.friday[0]== 'P')
+                    if(tutSlots[i].num == row.friday )
                     {
                         row.friday =tutSlots[i].coursesAssigned.map((course) => {
                             return(
-                            <><div>{course.code} P{course.subBatch} {course.tutPrac}</div></>
+                            <><div>{course.code} P{course.subBatch} {course.tutPrac} {course.teacher}</div></>
                             )
                         }) 
                     }
