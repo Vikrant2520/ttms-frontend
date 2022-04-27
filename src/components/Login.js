@@ -14,7 +14,7 @@ function Login() {
     const history = useHistory();
   const onSuccess = (res) => {
     console.log('Login Success: currentUser:', res.profileObj);
-    history.push('/');
+    history.push('/uploadCSV');
    
     alert(
       `Logged in successfully welcome ${res.profileObj.name} 😍. `

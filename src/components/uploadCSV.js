@@ -4,8 +4,12 @@ import DataTable from 'react-data-table-component';
 import Logout from './Logout';
 import axios from 'axios';
 import Button from '@mui/material/Button';
+import { Route, useHistory } from 'react-router-dom';
+
 
 function UploadCSV(props) {
+  const history = useHistory();
+
     
     const [columns, setColumns] = useState([]);
     const [data, setData] = useState([]);
@@ -77,10 +81,10 @@ function UploadCSV(props) {
     const addSlots = () =>  axios.get("http://localhost:3001/slots/add-slots/",  { crossdomain: true }) ;
     const assignCourses= () =>  axios.get("http://localhost:3001/slots/assign-courses/",  { crossdomain: true }) ;
     const delSlots = () =>  axios.get("http://localhost:3001/slots/del-slots/",  { crossdomain: true }) ;
-    const delTutSlots = () =>  axios.get("http://localhost:3001/del-tut-slots/",  { crossdomain: true }) ;
-    const addTutSlots = () =>  axios.get("http://localhost:3001/add-tut-slots/",  { crossdomain: true }) ;
-    const assignTutSlots = () =>  axios.get("http://localhost:3001/assign-tut/",  { crossdomain: true }) ;
-    const assignPracticalSlots = () =>  axios.get("http://localhost:3001/assign-prac/",  { crossdomain: true }) ;
+    const delTutSlots = () =>  axios.get("http://localhost:3001/slots/del-tut-slots/",  { crossdomain: true }) ;
+    const addTutSlots = () =>  axios.get("http://localhost:3001/slots/add-tut-slots/",  { crossdomain: true }) ;
+    const assignTutSlots = () =>  axios.get("http://localhost:3001/slots/assign-tut/",  { crossdomain: true }) ;
+    const assignPracticalSlots = () =>  axios.get("http://localhost:3001/slots/assign-prac/",  { crossdomain: true }) ;
 
 
 
@@ -125,6 +129,9 @@ function UploadCSV(props) {
       <br/>
       <Button style={{padding: '6px 12px', border: '1px solid', margin: '5px 5px',}} variant="contained" onClick={() => assignPracticalSlots()}>
         Assign Practical Slots 
+      </Button>
+      <Button style={{padding: '6px 12px', border: '1px solid', margin: '5px 5px',}} variant="contained" onClick={() => history.push('./timetable')}>
+        Allot TimeTable 
       </Button>
       <br/>
     
